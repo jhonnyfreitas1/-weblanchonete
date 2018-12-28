@@ -1,0 +1,38 @@
+ li a {
+            text-decoration: none;
+            padding: 0 .3em;
+            color: white;
+            background: rgb(20,220,20);
+            border-radius: 50%;
+        } 
+         fieldset{
+           background-color:#babaca;   
+            margin-top:10px;
+            display:fixed;
+            margin-left: 2em;
+            margin-right: 2em;
+
+        }  
+        legend{
+           
+            background-color:#babaca;
+            color:black;
+            border-top: 5px;
+        border-top: double;
+            }
+            .disable{
+                display: none;
+            }
+            .enable{
+                display: block;
+            }
+                .ultimos{
+                    margin-right: 60em;
+
+                }
+            .ultimos3{
+                margin-top: -8.5em;
+                margin-left: 25em;
+                margin-right: 25em;
+
+                }

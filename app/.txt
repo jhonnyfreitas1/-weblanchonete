@@ -1,0 +1,56 @@
+Sistema da Lanchonete
+
+Uma lanchonete pediu que sua empresa construísse um sistema para que os clientes pudessem realizar os pedidos através de um aplicativo. Você ficou responsável pela construção do webservice, que será acessado pelas aplicações que serão desenvolvidas.
+
+O modelo do banco de dados foi definido, e está no arquivo "bd.sql", e a seguir estão listadas as rotas que devem ser implementadas, com suas respectivas descrições:
+
+POST /produtos/adicionar_tipo
+- recebe a variável "nome"
+- insere um registro na tabela "tipos"
+- retorna {"inserido": true} ou {"inserido": false}
+
+POST /produtos/adicionar
+- recebe as variáveis "nome", "tipo_id" e "preco"
+- insere um registro na tabela "produtos"
+- retorna {"inserido": true} ou {"inserido": false}
+
+GET /produtos/tipos
+- retorna os tipos de produtos disponíveis; cada objeto no array de retorno deve conter dois atributos: "id" e "tipo"
+
+GET /produtos/listar/{tipo}
+- retorna todos os produtos onde tipo_id = {tipo}; cada objeto no array de retorno deve conter os seguintes atributos:
+- id
+- nome
+- preco
+
+GET /produtos/pegar/{id}
+- retorna o produto cujo id é {id}; o objeto resultante deve ter os seguintes atributos:
+- id
+- tipo (o nome do tipo, não seu id - utilize um join)
+- nome
+- preco
+
+GET /pedidos/criar
+- cria um pedido (insere um registro na tabela "pedidos") e retorna um objeto com apenas um atributo ("id" - o id do registro que foi criado)
+- todo pedido criado tem as colunas "pronto" e "pago" setadas para "false"
+
+POST /pedidos/adicionar_item
+- recebe as variáveis "pedido_id", "produto_id" e "quantidade"
+- insere um registro na tabela "itens_pedido"
+- retorna um objeto com o atributo "inserido", contendo um boolean (true ou false, a depender se a operação foi ou não bem sucedida)
+
+POST /pedidos/remover_item
+- recebe a variavel "id", contendo o id do registro a ser removido da tabela "itens_pedido"
+- retorna um objeto com o atributo "removido", contendo um boolean (true ou false, a depender se a operação foi ou não bem sucedida)
+
+POST /pedidos/pagar
+- recebe as variáveis "pedido_id" e "valor" (o valor recebido para pagar)
+- deve verificar se o valor recebido é maior ou igual ao valor do pedido (soma dos valores dos itens do pedido multiplicados pela quantidade); caso verdadeiro, altera a coluna "pago" do pedido com id = pedido_id para "true"
+- retorna um objeto com os seguintes atributos:
+- pago (boolean)
+- troco (valor recebido menos o valor do pedido - este valor pode ser negativo, caso o valor recebido não seja suficiente para pagar o produto)
+
+POST /item/pronto
+- recebe a variável "item_id"
+- altera a coluna "pronto" do item com id = item_id para "true"
+- caso todos os itens de um pedido estejam prontos (coluna "pronto" = true), a coluna "pronto" do registro em pedido também deve ser alterada.

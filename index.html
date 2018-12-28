@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body style="background-color:#283149;">
+    <fieldset>
+        <legend>Adicionar Tipos</legend>
+        <form action="" id="add_tipo">
+            <input type="text" name="tipo" placeholder="Nome do tipo">
+            <input type="submit" value="Enviar">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Adicionar produtos</legend>
+        <form action="" id="add_prod">
+            <input type="text" name="nome_prod" placeholder="nome">
+            <input type="number" name="preco" placeholder="preco">
+        <label>Selecione o tipo(clique duas vezes!) </label>
+        <select id="select" name="select" type="hidden" onmouseover=" click(); ">
+        </select>
+            <input type="submit"   value="ENVIAR">
+        
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Veja os tipos disponiveis<span id="username"></span></legend>
+         <div name="message" id="messages" cols="30" rows="10" placeholder="tipo & id" ></div>
+            <input type="submit" value="veja tipos" id="get_tipos">
+        </fieldset>
+        <fieldset class="ultimos2">
+            <legend>Veja produtos por tipos</legend>
+            <form action="" id="get_prod_tipo">
+            <label>Coloque o id do tipo </label>
+            <input type="number" name="id">
+            <input type="submit" value="ENVIAR" >
+        </form>
+
+        <div id="resultado"></div>
+        </fieldset>
+        <fieldset>
+            <legend>Veja produtos por id</legend>
+            <form action="" id="get_prod">
+            <label>Coloque o id do produto </label>
+            <input type="number" name="id_prod">
+            <input type="submit" value="ENVIAR" >
+        </form>
+
+        <div id="resultado_prod"></div>
+        </fieldset>
+
+
+            <fieldset>
+            <legend>Area de pedido</legend>
+            <button id="fazer_pedido" onclick="">Faca um pedido</button>
+                <div id="pedidos"></div>
+                    <form style="" class="disable" id="add_item">
+                <tr>
+                    
+                    <legend><b>Adicione produtos no seu pedido<b></legend>
+                        <label>id do produto</label>
+                    <input type="number" placeholder="id do produto" name="produto_id" >
+                    <label>Quantidade</label>
+                    <input type="number" name="quantidade" placeholder="quantidade">
+                   <label>Id do Pedido ja setado</label>
+                    <input type="number" id="pedido" placeholder="id do pedido" name="pedido_id" readonly="true">
+                        <input type="submit" name="enviar" value="enviar">
+                        <input type="submit" name="Ver valor" id="ver_valor" value="enviar">
+               
+                </tr>
+                </form>
+             </fieldset>
+
+        <fieldset class="ultimos">
+
+            <legend>Apague itens</legend>
+            <form id="remover_item">
+            <label>Coloque o id do item para apagar</label>
+            <input type="number" name="id_item">
+            <input type="submit" name="enviar" value="Apagar">
+            </form>
+            </fieldset>
+        <fieldset class="ultimos2">
+            
+            <legend>pague seu pedido</legend>
+            <form id="pagar_pedido">
+            <label>Seu valor em dinheiro</label>
+            <input type="number" name="valor">
+             <label>Id do pedido</label>
+             <input type="number" name="id_pedido">
+            <input type="submit" name="enviar" value="Pagar">
+            </form>
+            </fieldset>
+
+
+            <fieldset class="ultimos3">           
+            <legend>Informe que um pedido esta pronto!</legend>
+            <form id="pedido_pronto">
+            <label>Id do pedido</label>
+            <input type="number" name="valor_item">
+            <input type="submit" name="enviar" value="Pronto!">
+            </form>
+            </fieldset>
+
+
+     <script src="script.js">
+       
+
+        </script>
+    </body>
+</html>
